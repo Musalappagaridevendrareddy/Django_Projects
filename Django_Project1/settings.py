@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -124,6 +125,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 
 # Default primary key field type
@@ -148,3 +150,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER=os.environ.get('EMAIL_USER')
 
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+
+django_heroku.settings(locals())
